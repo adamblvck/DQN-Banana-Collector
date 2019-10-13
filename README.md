@@ -2,13 +2,15 @@
 
 ## Introduction
 
-For this project submission, we've trained an agent to navigate (and collect bananas!) in a large, square world.
+For this project submission, we've trained an agent to navigate and collect bananas in a large, square world. The ideas is to collect the yellow ones, while avoiding the blue ones.
 
-Here's how an untrained, random-choice agent moves throughout the game:
+### Visuals
+
+Here's how an untrained, random-action agent moves throughout the game...
 
 ![](media/random_agent.gif)
 
-And this is a screencap of my trained agent, collecting yellow bananas and avoding blue bananas:
+...and this is how my trained agent happily collects yellow bananas and avoids the blue ones:
 
 ![](media/dqn_agent.gif)
 

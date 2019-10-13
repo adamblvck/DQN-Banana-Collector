@@ -1,10 +1,10 @@
 # DQN-Banana-Collector
 
-To train an agent based on feedback from its environment, it's self-evident that a reinforcement learning algorithm should be used for this.
+To train an agent based on feedback from its environment, it's self-evident that a reinforcement learning algorithm would serve this problem well.
 
-In [Deep Reinforcement Learning](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) course we went through classical Q-learning algorithms like SARSA, but also touched deeply on Deep Q-Networks (abbreviated as DQNs).
+In Udacity's [Deep Reinforcement Learning](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) course we went through classical Q-learning algorithms like SARSA, learned the limitations of that algoriths, and have seen the *deep* powers of Deep Q-Networks (abbreviated as DQNs).
 
-Seeing the efficiency at which DQNs can solve agents in [OpenAI Gym](https://openai.com/), it only made sense to try the DQN-algorithm for our Banana Collector.
+Seeing the efficiency at which DQNs can solve agents in [OpenAI Gym](https://openai.com/), it only made sense to try the DQN-algorithm for our Banana-Collector.
 
 The Banana-Collector environment provides us with a state with 37 dimensions, including ray-based detections, velocity and others. The Banana-Collector is also reduced to only 4 actions.
 
@@ -38,7 +38,7 @@ The hyperparameters of the learning algorithm are as follows:
 
 ## Plot of Rewards
 
-The project specification specifies that the environment is considered to be solved when the average score over 100 episodes is over 13. We've chosen that number to be 16.
+The project specification specifies that the environment is considered to be solved when the average score in 100 episodes is over 13. We've chosen the score to be 16.
 
 On episode `835`, the DQN-agent managed to solve the environment with a score of exactly 16. The training output looks as follows:
 
@@ -60,10 +60,12 @@ Below a plot with the scores as function in episodes, for a visual representatio
 
 ![](media/dqn_agent_episode_x_scores/png)
 
+To the the code, please take a look at [the python notebook](Navigation.ipynb).
+
 ## Ideas for Future Work
 
-The agent is collecting yelllow bananas and avoiding blue bananas pretty well. I've noticed that sometimes the agent gets stuck moving `LEFT` and `RIGHT`, because he's only seeing blue bananas in the environment. This could be combatted by increasing the `UPDATE EVERY` hyper-parameter.
+The agent is collecting yelllow bananas and avoiding blue bananas pretty well. I've noticed that sometimes the agent gets stuck moving `LEFT` and `RIGHT`, this is when he's only seeing blue bananas in the environment. This could be combatted by increasing the `UPDATE EVERY` hyper-parameter to 8 or 16.
 
 The learning algorithm could be expanded with other algorithms, including `Double DQN`, `Dueling DQN` and `prioritized experience replay`. I'm not sure how far implementing these would increase the score. To see the effect of these algorithms in action, I'd propose to rebuild the environment with the following adjustments:
-- Add a turning-speed to the agent. Pressing left or right accelerates turning left or right. This would make it harder for the agent to move around, and thus it would be more important to consider prioritized experience replay, for example
-- Add obstacles, valleys, and bridges to the game, similar to the game [Quake](https://youtu.be/ZHT2TgMX7Rg). In a more complex environment, implementing fine-tunings would certainly be required to consider that environment solved.
+- Add a turning-speed to the agent. Pressing left or right accelerates the turn speed left or right, with friction factor that steadily diminishes the turning speed to zero. This would make it harder for the agent to move around, and thus it would be more important for `double DQN` or  `prioritized experience replay` to be implemented.
+- Add obstacles, valleys, and bridges to the game, similar to the game [Quake](https://youtu.be/ZHT2TgMX7Rg). In a more complex environment, implementing above-mentioned fine-tunings (and more) would certainly be required to consider that environment solved.
