@@ -28,6 +28,10 @@ The task is episodic, and in order to solve the environment, the agent must get 
 
 ## Report
 
+The DQN-agent has been implemented as class in `dqn_agent.py` file. The DQN-network (architecture) is coded in the `model.py` file.
+
+The trained model's weights are saved seperately for quick agent-recall in the `checkpoint.pth` file.
+
 For a report on the learning algorithm, plot of rewards (training) and future work, please read [the report](Report.md).
 
 ## Getting Started
